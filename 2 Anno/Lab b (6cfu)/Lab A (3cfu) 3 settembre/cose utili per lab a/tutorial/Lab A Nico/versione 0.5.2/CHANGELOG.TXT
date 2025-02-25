@@ -1,6 +1,0 @@
-VERSION 0.5.2
-
-DESCRIPTION: Eseguiti tutti i test e revisionato tutti i commenti javado.
-	     Ora rimangono solo gli @author vacanti
-
-CHANGES: -
