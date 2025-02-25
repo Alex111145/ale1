@@ -1,0 +1,5 @@
+VERSION 0.1
+
+DESCRIPTION: First development versione of our project, nothing needs to be told about it.
+
+CHANGES: None.
