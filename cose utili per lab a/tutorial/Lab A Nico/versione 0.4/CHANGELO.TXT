@@ -1,0 +1,9 @@
+VERSION 0.4
+
+DESCRIPTION: fourth development version of our project, implemented the remaining missing funtions.
+	     Now remains only to test the code and add all the missing javadoc comments.
+
+CHANGES: Implemented functions primaDiData, dopoDiData,stessaData in ManagerEventi;
+	 Implemented function creaDataSuccessiva in ManagerEventi;
+	 Implenented function ricerca in ManagerEventi;
+         More javadoc (don't remember what).
