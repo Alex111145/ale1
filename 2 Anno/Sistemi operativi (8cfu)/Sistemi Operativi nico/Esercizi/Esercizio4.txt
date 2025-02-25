@@ -1,0 +1,152 @@
+
+
+
+
+
+Si implementi il classico problema produttori/consumatori con le seguenti modifiche:
+
+- esiste la classe dei consumatori "speciali" che consumano due elementi anzichŽ uno.
+
+- se un consumatore speciale va in waiting allora da questo momento in poi al massimo 5 consumatori normali potranno consumare prima che almeno un consumatore speciale venga risvegliato.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Stato iniziale: 
+F=N; (F = numero di elementi dell'array Free) 
+A=0; (A = numero di elementi dell'array Available)
+bonus=5; (serve per implementare la prioritˆÕ ai consumatori speciali)
+semProd=0; semCons=0; semConsSpec=0;
+prodWaiting=consWaiting=consSpecWaiting=0; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+produttore( ){
+  wait(mutex);
+  if(F==0){ 
+    prodWaiting++; 
+    signal(mutex);
+    wait(semProd); 
+  }
+  else{
+    F=F-1;
+    signal(mutex);
+  } 
+  produzione classica;
+  wait(mutex);
+  if(bonus>0 & consWaiting>0){ 
+     consWaiting--;
+     signal(consSem); 
+  }
+  else{
+    if(consSpecWaiting>0 & A=1){ 
+     consSpecWaiting--; 
+     A=0;
+     bonus=5; 
+     signal(consSpecSem); 
+    }
+    else{
+      A=A+1; // cÕ un elemento Available in pi 
+    } 
+  }
+  signal(mutex);
+}
+
+
+consumatore(){
+  wait(mutex);
+  if(A==0 OR bonus==0){ 
+    consWaiting++;  
+    signal(mutex);
+    wait(consSem);
+    wait(mutex);
+  } 
+  else{    
+     A=A-1;
+  }
+  if(consSpecWaiting>0){bonusÑ -;}
+  signal(mutex);
+  consumazione classica;
+  wait(mutex);
+  if(prodWaiting>0){
+    prodWaiting--;
+    signal(semProd);
+  }
+  else{F=F+1;}
+  signal(mutex);
+
+}
+
+
+consumatoreSpeciale(){
+  wait(mutex);
+  if(A<=1){
+    consSpecWaiting++;
+    signal(mutex);
+    wait(consSpecSem);
+    
+  }
+  else{
+    A=A-2;
+    signal(mutex);
+  }
+  consumazione classica di due item;
+  wait(mutex);
+  if(prodWaiting>1){
+    prodWaiting--;
+    prodWaiting--;
+    signal(semProd);
+    signal(semProd);   
+  }
+  else{
+    if(prodWaiting==1){
+      prodWaiting--;
+      signal(prodWaiting);
+      F=F+1;
+    }
+    else{F = F+2;}
+    }
+  }
+  signal(mutex);
+}
+
+}
