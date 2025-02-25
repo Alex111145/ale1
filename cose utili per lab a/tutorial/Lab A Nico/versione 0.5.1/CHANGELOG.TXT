@@ -1,6 +1,0 @@
-VERSION 0.5.1
-
-DESCRIPTION: Aggiunti tutti i javadoc rimanenti eccetto quelli delle classi.
-
-CHANGES: controllati tutti i javadoc con "TODO check javadoc"
-	   aggiunti i javadoc delle funzioni di tutte le classi
