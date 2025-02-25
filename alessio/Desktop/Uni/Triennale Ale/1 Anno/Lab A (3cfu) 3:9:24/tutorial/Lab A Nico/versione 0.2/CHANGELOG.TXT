@@ -1,0 +1,8 @@
+VERSION 0.2
+
+DESCRIPTION: Second development version of our project, added a new class to manage Point Of Interest and
+             some more javadoc here and there.
+
+CHANGES: New class PuntiDiInteresse;
+         Renamed the class Facedoor in EmotionalMaps;
+         More javadoc (don't remember what).
